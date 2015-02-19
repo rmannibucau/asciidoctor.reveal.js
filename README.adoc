@@ -1,0 +1,49 @@
+= Usage
+
+Simply import asciidoctor.reveal.js and asciidoctor.js (all version is in plugin/asciidoctor folder) in
+reveal.js and start writing asciidoc in your slide marking sections with `data-asciidoctor`:
+
+[source,html,numbered]
+----
+<div class="reveal">
+    <div class="slides">
+        <section data-asciidoctor>
+            <script type="text/template">
+                [big]#Apache JCS#
+            </script>
+        </section>
+        <section data-asciidoctor>
+            == Who Am I?
+
+            Romain Manni-Bucau
+
+            image::img/twitter.png[]
+            image::img/wordpress.png[]
+            image::img/github.png[]
+            image::img/tomitribe.png[]
+        </section>
+</div>
+<!-- ... -->
+
+<script>
+    Reveal.initialize({
+        dependencies: [
+            {
+                src: 'plugin/asciidoctor/asciidoctor-all.js', condition: function () {
+                return !!document.querySelector('[data-asciidoctor]');
+            }},
+            {
+                src: 'plugin/asciidoctor/asciidoctor.reveal.js', condition: function () {
+                return !!document.querySelector('[data-asciidoctor]');
+            }}
+        ]
+    });
+
+</script>
+----
+
+= Quick start
+
+From a normal reveal.js setup just add in plugin/asciidoctor the folder of the same name you can find in
+this repository and add the two previous dependencies in reveal.js configuration.
+
