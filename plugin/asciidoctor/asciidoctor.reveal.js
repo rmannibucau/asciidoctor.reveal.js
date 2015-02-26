@@ -17,7 +17,7 @@
             currentOptions = Opal.hash2(optionKeys, {attributes: currentAttr ? currentAttr.split(",") : defaultOptions});
         }
         var notes = sections[i].querySelector('aside.notes');
-        sections[i].innerHTML = Opal.Asciidoctor.$convert(sections[i].textContent.trim().replace(/\r?\n */g, '\n'), currentOptions);
+        sections[i].innerHTML = Opal.Asciidoctor.$convert(sections[i].innerHTML.trim().replace(/\r?\n */g, '\n'), currentOptions);
         if (notes) {
             sections[i].appendChild(notes);
         }
